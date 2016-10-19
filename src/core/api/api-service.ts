@@ -25,9 +25,12 @@ export class ApiService {
   }
 
   fetchUser(userId: number): Observable<UserData> {
-    return this.request({
+    let request = this.request({
       url: `${API_USERS_URL}/${userId}`
     });
+
+    console.log(request);
+    return request;
   }
 
   fetchUserLikes(userId: number): Observable<PaginatedData> {

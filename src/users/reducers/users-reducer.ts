@@ -34,6 +34,13 @@ export const usersReducer: ActionReducer<UsersState> = (state: UsersState = init
     case UserActions.LOAD_USER:
       return state.set('currentUserId', payload.userId);
 
+    case UserActions.FETCH_USER_FAILED:
+
+      console.log('caught action');
+      return state;
+
+
+
     default:
       return state;
   }

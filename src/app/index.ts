@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 
+import { CounterModule, counterReducer } from 'src/counter';
 import { CoreModule } from 'src/core';
 import { HomeModule } from 'src/home';
 import { PlayerModule, playerReducer, timesReducer } from 'src/player';
@@ -32,6 +33,7 @@ export { AppState } from './interfaces';
     RouterModule.forRoot([], {useHash: false}),
 
     StoreModule.provideStore({
+      counter: counterReducer,
       player: playerReducer,
       search: searchReducer,
       times: timesReducer,
@@ -40,6 +42,7 @@ export { AppState } from './interfaces';
       users: usersReducer
     }),
 
+    CounterModule,
     CoreModule,
     HomeModule,
     PlayerModule,

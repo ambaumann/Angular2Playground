@@ -36,7 +36,10 @@ export class UserEffects {
     .filter(({user}) => !user || !user.profile)
     .switchMap(({payload}) => this.api.fetchUser(payload.userId)
       .map(data => this.userActions.fetchUserFulfilled(data))
-      .catch(error => Observable.of(this.userActions.fetchUserFailed(error)))
+      .catch(error => {
+        console.log('Error User Not Found.');
+        return Observable.of(this.userActions.fetchUserFailed(error));
+      })
     );
 
   @Effect()

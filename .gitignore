@@ -16,6 +16,8 @@ tmp/
 *.tar
 *.zip
 
+src/**/*.js
+src/**/*.map
 
 #======================================
 # IDE generated
